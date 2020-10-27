@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, intial-scal=1.0">
+    <title>The Electric Kool Aid Company</title>
+      <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+      <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+      <script src="function.js"></script>
+
+<style>
+header {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    text-align: center;
+    background-color: lightgrey;
+    width: 400px;
+    border: black;
+    border-width: thin;
+    border-style: solid; 
+}
+
+body {
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/12cbe8a4-f55c-4b40-85bb-d8e1405e7b84/dc2mky5-f307c94c-e80a-4fb3-b6c8-b4aa56ba46a1.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMTJjYmU4YTQtZjU1Yy00YjQwLTg1YmItZDhlMTQwNWU3Yjg0XC9kYzJta3k1LWYzMDdjOTRjLWU4MGEtNGZiMy1iNmM4LWI0YWE1NmJhNDZhMS5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.X6FuNs6SVEGWi3YIIYLEv3caAvmaHLml4qinV9nLj3o");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    margin: 5px;
+    padding: 16px;
+    background-color: rgb(140, 77, 158);
+    opacity: 90%;
+    border: black;
+    border-style: solid;
+    border-width: thin;
+}
+
+#musicBtn {
+    background-image: url("music.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#artBtn {
+    background-image: url("art.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#gameBtn {
+    background-image: url("games.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#vhsBtn {
+    background-image: url("vhs.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#chatBtn {
+    background-image: url("chat.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#chartBtn {
+    background-image: url("chart.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+#uniswapBtn {
+    background-image: url("uniswap.png");
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+#music { width: 560px; height: 200px; padding: 0.5em; background:rgb(133, 30, 107);}
+#art { margin-left: -10%; width: 670px; height: 250px; padding: 0.5em; background:rgb(66, 151, 58);}
+#game { margin-top: -10%; width: 505px; height: 450px; padding: 0.5em; background:rgb(147, 36, 161);}
+#vhs { width: 500px; height: 290px; padding: 0.5em; background:rgb(202, 174, 50);}
+#chat { width: 600px; height: 430px; padding: 0.5em; background:rgb(35, 8, 99);}
+#chart { width: 400px; height: 430px; padding: 0.5em; background:rgb(0, 0, 0);}
+#uniswap { margin-top: -5%; width: 600px; height: 450px; padding: 0.5em; background:rgb(243, 150, 243);}
+
+
+.close {
+    font-size: 15px;
+    font-weight: bold;
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+.ui-widget-content {
+    margin: 5px;
+}
+
+</style>
+
+</head>
+<body>
+
+
+    <header>TEKAC v1.0.0
+        <p>(click an icon to interact)</p>
+
+        <!--buttons-->
+    <button class="btn" id="musicBtn"></button>
+    <button class="btn" id="artBtn"></button>
+    <button class="btn" id="gameBtn"></button>
+    <button class="btn" id="vhsBtn"></button>
+    <button class="btn" id="chatBtn"></button>
+    <button class="btn" id="uniswapBtn"></button>
+    <button class="btn" id="chartBtn"></button>
+    </header>
+<br>
+
+<!--div/container to keep all the windows in a grid-->
+<div class="container"> 
+
+
+<!--music window content--> 
+    <div id="music" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">MUSIC<span class="close" id="musicClose">&times;</span></header>
+    <p>
+    <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/545164839&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    </p>
+    </div>
+
+<!--vhs window content-->
+    <div id="vhs" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">VIDEO OF THE WEEK<span class="close" id="vhsClose">&times;</span></header>
+    <p>
+    <iframe width="500" height="250" src="https://www.youtube.com/embed/videoseries?list=PLsHxOGO93EAL1oaYP6GUWYjPV_k8puQMt" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+    </div> 
+
+<!--art window content-->
+    <div id="art" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">GALLERY<span class="close" id="artClose">&times;</span></header>
+    <p><nft-card contractAddress="0x6c7b6cc55d4098400ac787c8793205d3e86c37c9" tokenId="117"> </nft-card> <script src="https://unpkg.com/embeddable-nfts/dist/nft-card.min.js"></script>
+    </p>
+    </div>
+
+<!--game window content-->
+    <div id="game" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">GAME<span class="close" id="gameClose">&times;</span></header>
+    <p> 
+    <iframe src="https://gba.ninja/" height="400px" width="500px"></iframe>
+    </p>    
+    </div>
+
+<!--chat window content-->
+    <div id="chat" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">CHAT<span class="close" id="chatClose">&times;</span></header>
+    <p>
+    <iframe src="https://titanembeds.com/embed/762913634577022996" height="400" width="600" frameborder="0"></iframe>
+    </p>
+    </div>
+
+<!--chart window content-->
+    <div id="chart" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">CHART<span class="close" id="chartClose">&times;</span></header>
+    <p>
+    <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_c01bb"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/LINKUSD/?exchange=KRAKEN" rel="noopener" target="_blank"><span class="blue-text">LINKUSD Chart</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 400,
+  "height": 400,
+  "symbol": "KRAKEN:LINKUSD",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "allow_symbol_change": true,
+  "container_id": "tradingview_c01bb"
+}
+  );
+  </script>
+</div>
+<!-- TradingView Widget END -->
+    </p>
+    </div>
+
+<!--uniswap window content-->
+    <div id="uniswap" class="ui-widget-content" style="display: none;">
+    <header class="wndHeader">UniSwap<span class="close" id="uniswapClose">&times;</span></header>
+    <p>
+    <iframe src="https://app.uniswap.org/#/swap?use=v1?outputCurrency=0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359" height="660px" width="100%" style="border: 0; margin: 0 auto; display: block; border-radius: 10px; height: 400px; min-width: 600px;" id="myId"/>
+    </p>
+    </div>
+ 
+</div> 
+    
+    
+
+
+
+
+
+</body>
+</html>
